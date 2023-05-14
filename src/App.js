@@ -1,29 +1,28 @@
-import { FilterPanel } from "components/FilterPanel";
-import { JobList } from "components/JobList";
-import { TheHeader } from "components/TheHeader";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+
+import { FilterPanel } from 'components/FilterPanel';
+import { JobList } from 'components/JobList';
+import { TheHeader } from 'components/TheHeader';
+
+import {addPositions} from './store/positions/position-actions';
 
 import data from './mock/data.json';
-import { addPositions } from "store/positions/position-actions";
 
 function App() {
   const dispatch = useDispatch();
 
-
   useEffect(() => {
-
-    dispatch(addPositions(data))
-
-  },[])
+    dispatch(addPositions(data));
+  });
 
   return (
     <>
-      <TheHeader />
-      <div className="container">
-        <FilterPanel />
-        <JobList />
-      </div>
+     <TheHeader />
+     <div className='container'>
+      <FilterPanel />
+      <JobList />
+     </div>
     </>
   );
 }
